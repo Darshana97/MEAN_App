@@ -8,6 +8,21 @@ var mongoose = require("mongoose");
 
 app.use(morgan("dev"));
 
+mongoose.connect(
+  "mongodb://localhost:27017/MeanApp",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  function (err) {
+    if (err) {
+      console.log("Not connected to the database " + err);
+    } else {
+      console.log("Succefully connected to MongoDB");
+    }
+  }
+);
+
 app.listen(port, function () {
   console.log("Running the server on port " + port);
 });
