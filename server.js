@@ -2,10 +2,12 @@ var express = require("express");
 
 var app = express();
 
-app.get("/", function (req, res) {
-  res.send("Hello World");
-});
+var port = process.env.PORT || 8080;
 
-app.listen(process.env.PORT || 8080, function () {
-  console.log("Running the server");
+// app.get("/", function (req, res) {
+//   res.send("Hello World");
+// });
+
+app.listen(port, function () {
+  console.log("Running the server on port " + port);
 });
