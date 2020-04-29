@@ -12,6 +12,10 @@ angular
         templateUrl: "app/views/pages/about.html",
       })
 
+      .when("/register", {
+        templateUrl: "app/views/pages/users/register.html",
+      })
+
       .otherwise({ redirectTo: "/" });
 
     $locationProvider.html5Mode({
