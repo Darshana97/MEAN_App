@@ -14,6 +14,8 @@ angular
 
       .when("/register", {
         templateUrl: "app/views/pages/users/register.html",
+        controller:'regCtrl',
+        controllerAs:'register'
       })
 
       .otherwise({ redirectTo: "/" });
