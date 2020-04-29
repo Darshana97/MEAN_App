@@ -1,8 +1,10 @@
 angular
     .module("userControllers", [])
 
-.controller("regCtrl", function() {
-    this.regUser = function() {
-        console.log("testing new button");
+.controller("regCtrl", function($http) {
+    this.regUser = function(regData) {
+        console.log("form submitted");
+        console.log(this.regData);
+        $http.post("/api/users", this.regData);
     };
 });
