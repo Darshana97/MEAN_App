@@ -33,8 +33,13 @@ app.post("/users", function (req, res) {
   user.username = req.body.username;
   user.password = req.body.password;
   user.email = req.body.email;
-  user.save();
-  res.send("user created");
+  user.save(function (err) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send("user created");
+    }
+  });
 });
 
 app.listen(port, function () {
