@@ -2,9 +2,11 @@ var express = require("express");
 
 var app = express();
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8000;
 var morgan = require("morgan");
 var mongoose = require("mongoose");
+var User = require("./app/models/user");
+// var bodyParser = require('bod')
 
 app.use(morgan("dev"));
 
@@ -22,6 +24,14 @@ mongoose.connect(
     }
   }
 );
+
+app.post("/users", function (req, res) {
+  var user = new User();
+  user.username = req.body.username;
+  user.password = req.body.password;
+  user.email = req.body.email;
+  user.save();
+});
 
 app.listen(port, function () {
   console.log("Running the server on port " + port);
