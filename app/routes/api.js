@@ -17,13 +17,19 @@ var mongo = function(router) {
             req.body.email == null ||
             req.body.email == ""
         ) {
-            res.send("Ensure username,email, and password were provided");
+            res.json({
+                success: false,
+                message: "Ensure username,email, and password were provided",
+            });
         } else {
             user.save(function(err) {
                 if (err) {
-                    res.send("Email or Password already taken");
+                    res.json({
+                        success: false,
+                        message: "Email or Password already taken",
+                    });
                 } else {
-                    res.send("user created");
+                    res.json({ success: false, message: "user created" });
                 }
             });
         }
