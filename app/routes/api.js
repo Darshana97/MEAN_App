@@ -29,7 +29,7 @@ var mongo = function(router) {
                         message: "Email or Password already taken",
                     });
                 } else {
-                    res.json({ success: false, message: "user created" });
+                    res.json({ success: true, message: "user created" });
                 }
             });
         }
