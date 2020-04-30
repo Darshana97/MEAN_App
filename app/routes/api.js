@@ -3,7 +3,7 @@ var express = require("express");
 var app = express();
 var User = require("../models/user");
 
-module.exports = function(router) {
+var mongo = function(router) {
     app.post("/users", function(req, res) {
         var user = new User();
         user.username = req.body.username;
@@ -30,3 +30,5 @@ module.exports = function(router) {
     });
     return router;
 };
+
+module.exports = mongo;
